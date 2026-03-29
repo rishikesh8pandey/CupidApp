@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Valentine 💖</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="hearts-bg" id="heartsBg"></div>
+
+  <div class="container">
+
+    <div id="questionSection">
+      <h1>Will you be my Valentine? ❤️</h1>
+
+      <div class="buttons" id="buttonArea">
+        <button id="yesBtn">Yes 💖</button>
+        <button id="noBtn">No 😒</button>
+      </div>
+    </div>
+
+    <div id="yesSection" class="hidden">
+      <h1>I knew it 💕</h1>
+
+      <p id="subtitle" class="subtitle-text"></p>
+
+      <div class="gallery">
+        <img src="images/us1.jpeg" alt="Memory 1" />
+        <img src="images/us2.jpeg" alt="Memory 2" />
+        <img src="images/us3.jpeg" alt="Memory 3" />
+        <img src="images/us4.jpeg" alt="Memory 4" />
+        <img src="images/us5.jpeg" alt="Memory 5" />
+        <img src="images/us6.jpg" alt="Memory 6" />
+        <img src="images/us7.jpg" alt="Memory 7" />
+        <img src="images/us8.jpg" alt="Memory 8" />
+      </div>
+    </div>
+
+    <div id="noSection" class="hidden">
+      <h1>Stop playing 😤</h1>
+      <img src="images/cat.png" class="single-img" alt="Funny cat" />
+    </div>
+
+  </div>
+
+  <audio id="bgMusic" loop>
+    <source src="music.mp3" type="audio/mpeg" />
+  </audio>
+
+  <script src="script.js"></script>
+</body>
+</html>
