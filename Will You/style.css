@@ -176,3 +176,32 @@ button {
   from { transform: rotate(-3deg); }
   to   { transform: rotate(3deg); }
 }
+
+.linkedin-footer {
+  position: fixed;
+  bottom: 20px;
+  right: 24px;
+  z-index: 10;
+}
+
+.linkedin-footer a {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 100, 150, 0.3);
+  color: #ffb3cc;
+  text-decoration: none;
+  padding: 9px 16px;
+  border-radius: 50px;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+  font-size: 0.9rem;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.linkedin-footer a:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+}

@@ -24,14 +24,15 @@ const yesSection = document.getElementById("yesSection");
 const noSection = document.getElementById("noSection");
 
 const subtitle = document.getElementById("subtitle");
+const catSubtitle = document.getElementById("catSubtitle");
 const bgMusic = document.getElementById("bgMusic");
+const nakreMusic = document.getElementById("nakreMusic");
 const buttonArea = document.getElementById("buttonArea");
 
 let noCount = 0;
 let subtitleInterval;
 
-
-const lyrics = [
+const yesLyrics = [
   { time: 1, text: "You call the shots, babe 💖" },
   { time: 4, text: "I just wanna be yours" },
   { time: 7, text: "Secrets I have held in my heart ❤️" },
@@ -43,9 +44,20 @@ const lyrics = [
   { time: 29, text: "Wanna be yours 💕" }
 ];
 
-function startSubtitles() {
+const nakreLyrics = [
+  { time: 1,  text: "Jhumka dilaaoonga kangna dilaaoonga 💖" },
+  { time: 5,  text: "Sab kuch main laaoonga teri kasam" },
+  { time: 9,  text: "Chanda churaaoonga taarein bhi laaoonga ❤️" },
+  { time: 13, text: "Sooraj jhukaaoonga teri kasam" },
+  { time: 17, text: "Kabhi to meri jaan deewaani banogi 💕" },
+  { time: 22, text: "Mujhse shaadi karogi, hey mujhse shaadi karogi" },
+  { time: 27, text: "Mujhse shaadi karogi 💍" },
+  { time: 31, text: "Mujhse shaadi karogi 💖" }
+];
+
+function startSubtitles(targetEl, lyrics, duration) {
   clearInterval(subtitleInterval);
-  subtitle.textContent = "";
+  targetEl.textContent = "";
 
   const startTime = Date.now();
 
@@ -60,12 +72,13 @@ function startSubtitles() {
         currentTime >= currentLyric.time &&
         (!nextLyric || currentTime < nextLyric.time)
       ) {
-        subtitle.textContent = currentLyric.text;
+        targetEl.textContent = currentLyric.text;
         break;
       }
     }
 
-    if (currentTime > 33) {
+    if (currentTime > duration) {
+      targetEl.textContent = "";
       clearInterval(subtitleInterval);
     }
   }, 200);
@@ -76,11 +89,12 @@ yesBtn.addEventListener("click", () => {
   noSection.classList.add("hidden");
   yesSection.classList.remove("hidden");
 
+  nakreMusic.pause();
   bgMusic.currentTime = 0;
   bgMusic.volume = 0.5;
   bgMusic.play().catch(() => {});
 
-  startSubtitles();
+  startSubtitles(subtitle, yesLyrics, 33);
 });
 
 function moveNoButton() {
@@ -90,6 +104,12 @@ function moveNoButton() {
     questionSection.classList.add("hidden");
     yesSection.classList.add("hidden");
     noSection.classList.remove("hidden");
+
+    bgMusic.pause();
+    nakreMusic.currentTime = 0;
+    nakreMusic.volume = 0.5;
+    nakreMusic.play().catch(() => {});
+    startSubtitles(catSubtitle, nakreLyrics, 36);
     return;
   }
 
